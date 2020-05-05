@@ -19,14 +19,14 @@ router.get("/", function(req, res, next) {
       }
 
       user.findOne({ username: req.session.user }, (error, req_user) => {
-        /*   for(var z=0;z<req_user.followers.length;z++) {
+           for(var z=0;z<req_user.followers.length;z++) {
             user.findOne({_id:req_user.followers[z]}, (e,followedUser) => {
               posts.push(followedUser.posts)
             })
           }
-          */
+          
         var lastSeen = ta.ago(req_user.lastLogin);
-        //console.log(posts)
+        console.log(posts)
         res.render("index", {
           user: req_user,
           title: req.app.conf.name,
