@@ -12,7 +12,7 @@ mongoose.connect(require("../../config/app").db.connectionUri, {
 
 function checkSpace(name) {
   var charSplit = name.split("");
-  //console.log(charSplit)
+  console.log(charSplit)
   return _(charSplit, " ");
 }
 /*****
@@ -144,7 +144,7 @@ function getAll(cb) {
 }
 
 function deleteOne(opt, cb) {
-  //if(typeof opt !== Object) cb("Must be a javascript object.");
+  if(typeof opt !== Object) cb("Must be a javascript object.");
   User.deleteOne(opt).exec((err, res) => {
     if (err) return cb(err, null);
     else if (res.n == 0) {
@@ -176,7 +176,7 @@ function like(user, like, _id, cb) {
   console.log(user);
   User.findOne(user).exec((err, obj) => {
     if (!obj) return cb("Does not exist.", null);
-    //console.log(obj);
+    console.log(obj);
     for (var i = 0; i < obj.posts.length; i++) {
       if (obj.posts[i]._id == _id) {
         obj.posts[i].likes.push(like.by);
