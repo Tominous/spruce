@@ -27,7 +27,7 @@ function emailParser(str) {
   str = regex.exec(str);
   return { inputString: str[0], name: str[1], emailId: str[2] };
 }
-//console.log(emailParser("DivySrivastava <dj@123.com>"));
+console.log(emailParser("DivySrivastava <dj@123.com>"));
 
 module.exports = function(str) {
   str = makeBold(str);
