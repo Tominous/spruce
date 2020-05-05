@@ -6,7 +6,7 @@ const BrowserWindow = electron.BrowserWindow;
 
 const appConfig = require('./config/app.json');
 
-//var express = require('./app.js');
+var express = require('./app.js');
 
 const{dialog} = require('electron');
 const{Menu} = require('electron');
@@ -76,7 +76,7 @@ function createWindow(){
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
-// express.on('startedAdminMongo', createWindow);
+ express.on('startedAdminMongo', createWindow);
 app.on('ready', function (){
     createWindow()
 });
