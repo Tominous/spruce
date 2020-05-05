@@ -26,7 +26,7 @@ router.post("/v1/comment", function(req, res, next) {
 });
 
 router.post("/v1/like", function(req, res, next) {
-  //console.log(req.body);
+  console.log(req.body);
   db.like(
     { username: req.body.author },
     { by: req.session.user },
@@ -34,7 +34,7 @@ router.post("/v1/like", function(req, res, next) {
     (err, result) => {
       if (result) {
         res.send({ event: true, msg: "Liked!" });
-        //	console.log(result)
+        	console.log(result)
       } else {
         res.send({ event: false, msg: "Already liked." });
       }
@@ -139,10 +139,10 @@ router.post("/v1/user/:mode", function(req, res, next) {
     if (!user) return res.sendStatus(404);
 
     user[req.body.key] = req.body.value;
-    /*user.save(function(err) {
+    user.save(function(err) {
 			if(err) console.error(err);
 			return res.sendStatus(200);
-		})*/
+		})
     user.save((err, profile) => {
       delete req.session.user;
       req.session.user = profile.username;
